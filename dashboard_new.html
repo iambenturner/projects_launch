@@ -1,457 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-  
   <title>Dashboard | To-Dos</title>
-  
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   
-
-    <style type="text/css">
-    ul,ol { list-style: none; }
-    h1,h2,h3,h4,h5,h6,pre,code { font-size: 1em; }
-    ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,body,html,p,blockquote,fieldset,input,dl,dt,dd, figure, figcaption {
-    margin: 0;
-    padding: 0; }
-    a img,:link img,:visited img, fieldset { border: none; }
-    address { font-style: normal; }
-    header, section, article, nav, footer, hgroup, details, summary, figure, main { display: block; }
-    mark {
-    color: inherit;
-    background: transparent; }
-    abbr { border: none; }
-    summary::-webkit-details-marker { display: none; 
-    }
-
-
-
-
-
-
-    body{
-      max-width: 1200px;
-      min-width: 600px;
-      width: 100%;
-      font: lighter 16px Helvetica;
-      background-color: white;
-    
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-    header{
-      min-width: 25%;
-      box-sizing: border-box;
-      background-color: #464f77; 
-      float: left;
-      color:rgba(255,255,255,0.5);
-      padding: 20px 0 185px 100px;
-
-    }
-
-    header nav dl{
-    padding: 50px 0 0 40px;
-
-   }
-
-    header h1{
-      font-size: 18px;
-      color: #ffffff;
-      font-weight: lighter;
-      /*margin-top: -10px;*/
-      position: relative;
-
-
-    }
-
-    header h1:before{
-      content: url("icon_to_do.png");
-      width: 25px;
-      position: absolute;
-      left:-35px;
-      top: -5px;
-    }
-
-    
-  header dt{
-    float: left;
-    clear: both;
-
-  }
-
-  header dd{
-    margin: 0 0 0 130px;
-    text-align: center;
-  }
-
-  header dt{
-    padding:15px 30px 12px 0;
-  }
-
-  header dt ~ dt{
-
-  }
-
-  .circle{
-    border-radius: 50%;
-    background-color: rgba(255,255,255,.1);
-    border-style: none;
-    height: 20px;
-    width: 20px;
-  }
-
-
-  #first_circle{
-    border-radius: 40%;
-    background-color: rgba(255,255,255,.1);
-    border-style: none;
-    height: 20px;
-    width: 25px;
-
-  }
-
-  header dl div{
-  padding:15px 30px 15px 0;
-
-
-  }
-
-  #active {
-
-  background-color: #383f5f;
-  color: #ffffff;
-  margin-left: -160px;
-  padding-left: 160px;
-
-
-}
-
-#active .circle{
-
-  background-color: #148fd5;
-  color: #ffffff;
-
-}
-
-#active dt{
-  margin-top: -12px;
-}
-
- header dl:nth-of-type(2) h1:before {
-      content: url("icon_check_box.png");
-      width: 25px;
-      position: absolute;
-      left:-35px;
-      top: -5px;
-    }
-
- header dl:nth-of-type(2) dt ~ dt{
-     text-decoration: line-through;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-main{
-  padding: 20px 90px 150px 30px;
-  box-sizing: border-box;
-  overflow: auto;
-}
-
-
-#toggle_menu{
-  visibility: hidden;
-}
-
-[type=checkbox]{
-
-  display: none;
-}
-
-
-main ul{
- 
-}
-
-main ul li{
-  display: inline-block;
-
-}
-main ul h1{
-  padding: 35px 20px 30px 0;
-  font-size: 21px;
-  font-weight: lighter;
-}
-
-#mainactive{
- color: #ffffff;
- background-color: #148fd5;
- border-radius: 50%;
- width: 20px;
- border-style: none;
- text-align: center;
- position: relative;
- top: -2px;
-}
-
-
-
-main section ul li{
-  display: block;
-  padding: 18px 0 18px 0;
-  box-sizing: border-box;
-
-}
-
-main section ul li:first-child{
-  color: #148fd5;
-}
-
-main section ul li:first-child:before{
-    content: url("icon_add.png");
-    width: 25px;
-    position: relative;
-    padding: 0 15px;
-}
-
-main section ul li ~li {
-  border-top: 1px solid #e7e7e7;
-}
-
-.checked{
-  text-decoration: line-through;
-  color: #b3b3b3;
-}
-
-
-main section .unchecked:before{
-    content: url("icon_uncheck_box.png");
-    width: 25px;
-    position: relative;
-    padding: 0 15px;
-  
-}
-
-main section .checked:before{
-    content: url("icon_checked_box.png");
-    width: 25px;
-    position: relative;
-    padding: 0 15px;
-  
-}
-
-main section ul img{
-    position: relative;
-    float: right;
-
-  
-}
-
-main section ul li~li:hover{
-  color: #148fd5;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.modal{
-max-width: 100%;
-position:fixed;
-top: 0;
-right: 0;
-bottom: 0;
-left: 0;
-content: "";
-background: rgba(0,0,0, .4);}
-
-
-
-.modal form{
-
-position: absolute;
-left: 430px;
-top: 110px;
-width: 500px;
-background-color: #ffffff;
-padding: 32px;
-font-size: 14px;
-}
-
-
-input[type=text],
-input[type=number],
-textarea{
-  padding: 5px;
-  box-sizing: border-box;
-  border: 2px solid #e7e7e7;
-  width: 400px; 
-}
-
-
-input[type=number] {
-   width: 115px;
-}
-
-.divide{
- display: inline-block;
- padding: 0 8px;
-}
-textarea{
-  resize: none;
-}
-
-tr td:first-of-type{
-  vertical-align: top;
-  padding: 5px 0 10px 0;
-}
-
-tr td + td{
-  padding: 0 0 10px 20px;
-}
-
-
-
-
-
-main button{
-  color: #ffffff;
-  background-color: #148fd5;
-  border-style: none;
-  border-radius: 4px;
-  text-align: center;
-  width: 180px;
-  height: 30px;
-  font-size: 14px;
-  margin:5px 10px;
-
-}
-
-#buttons{
-  margin-left: 85px;
-}
-
-
-
-
-
-
-
-
-
-
-@media screen and (max-width: 769px){
-
-#toggle_menu{
-  visibility: visible;
-}
-
-header{
-  display: none;
-}
-
-input:checked + header{
-  display: block;
-  z-index: 4;
-}
-
-}
-
-  </style>
-
-
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-
-
-
-
-
-
-
-
-
-
-
 
 <body>
 
-<input type="checkbox"name="toggle_menu" id="toggle_menu">
+<input type="checkbox" name="toggle_menu" id="toggle_menu">
 <header>
   <nav>
     
-    <dl>
-    <dt><h1>All Todos</h1></dt><div><dd id="first_circle">18</dd></div>
-    <div id="active"><dt>02/16</dt><dd class="circle">8</dd></div>
-    <dt>03/16</dt><div><dd class="circle">2</dd></div>
-    <dt>04/16</dt><div><dd class="circle">1</dd></div>
-    <dt>05/16</dt><div><dd class="circle">1</dd></div>
-    <dt>06/16</dt><div><dd class="circle">6</dd></div>
-    </dl>
 
-    <dl>
-    <dt><h1>Completed</h1></dt>
-    <dt>02/15</dt>  
-    <dt>03/15</dt>  
-    <dt>04/15</dt>  
-    <dt>05/15</dt>  
-    <dt>06/15</dt>  
-    </dl>
+    <table>
+    <tr><td id="todo">All Todos</td><td><p id="firstcircle">18</p></td></tr>
+    <tr id="active"><td>02/16</td><td><p>8</p></td></tr>
+    <tr><td>03/16</td><td><p>2</p></td></tr>
+    <tr><td>04/16</td><td><p>1</p></td></tr>
+    <tr><td>05/16</td><td><p>1</p></td></tr>
+    <tr><td>06/16</td><td><p>6</p></td></tr>
+    </table>
+    
+    <table>
+    <tr><td id="completed">Completed</td></tr>
+    <tr><td>02/15</td></tr>  
+    <tr><td>03/15</td></tr>  
+    <tr><td>04/15</td></tr>  
+    <tr><td>05/15</td></tr>  
+    <tr><td>06/15</td></tr>  
+    </table>
 
   </nav>
-
 </header>
-
-
-
-
-
 
 
 <main>
   
 
-    <label for="toggle_menu" id="toggle_menu">
+    <label for="toggle_menu" id="menulabel">
     <img src="icon_menu.png" alt="menu">
     </label>
 
@@ -462,7 +49,7 @@ input:checked + header{
     <li id="mainactive">8</li>
     </ul>
 
-    <section>
+    <div>
     <ul>
       <li>Add new to do</li>
       <li class="unchecked">Item 1<img src="icon_trash_bin.png" alt="trash_bin"></li>
@@ -475,17 +62,12 @@ input:checked + header{
       <li class="unchecked">Item 8<img src="icon_trash_bin.png" alt="trash_bin"></li>
       <li class="unchecked">Item 9<img src="icon_trash_bin.png" alt="trash_bin"></li>
     </ul>
-    </section>
+    </div>
 
+<!--
+<div class="modal">
   
-
-
-
-
-
-<!--<div class="modal">
-  
-<form action="" method="post">
+<form action="/modal" method="post">
 <fieldset>
 
 <table>
@@ -503,11 +85,11 @@ input:checked + header{
     <label for="due_date"> Due Date</label>
   </td>
   <td>  
-    <input type="number" name="day" id="due_date" min="1" max="31" placeholder="Day">
+    <input type="number" name="day" min="1" max="31" placeholder="Day" id="due_date">
     <div class="divide">/ </div>
-    <input type="number" name="month" id="due_date" min="1" max="12" placeholder="Month">
+    <input type="number" name="month"  min="1" max="12" placeholder="Month">
     <div class="divide">/ </div>
-    <input type="number" name="month" id="due_date" min="2016" max="2050" placeholder="Year">
+    <input type="number" name="month"  min="2016" max="2050" placeholder="Year">
   </td>    
   </tr>
 
@@ -516,7 +98,7 @@ input:checked + header{
       <label for="desciption">Description</label>
     </td>
     <td>
-      <textarea cols="51" rows="10" placeholder="Description" placeholder="Description"></textarea>
+      <textarea cols="51" rows="10" placeholder="Description" id="desciption"></textarea>
     </td>
   </tr>
 </table>
@@ -524,18 +106,13 @@ input:checked + header{
 <div id="buttons">
    <button value="save">Save</button>
    <button value="mark_as_complete">Mark As Complete</button>
-</div> -->
-
-
+</div> 
 
 </fieldset>  
 </form>
 </div>
 
-
-
-
-
+-->
 
 
 </main>

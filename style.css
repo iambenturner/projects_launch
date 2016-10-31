@@ -1,0 +1,355 @@
+    @import 'reset.css';
+
+
+    body{
+      max-width: 1200px;
+      min-width: 600px;
+      width: 100%;
+      font: lighter 16px Helvetica;
+      background-color: white;
+    }
+
+
+
+
+
+    header{
+      min-width: 25%;
+      box-sizing: border-box;
+      background-color: #464f77; 
+      float: left;
+      color:rgba(255,255,255,0.5);
+      padding: 20px 0 185px 0;
+
+    }
+
+
+    header table{
+        padding: 60px 0 0  0;
+        
+        
+
+    }
+
+    header table tr{
+         height: 40px;
+         display: block;
+         margin-top: 5px;
+        
+
+    }
+
+    header table tr td{
+      
+       
+        text-align: right;
+        border-collapse: collapse;    
+        display: inline-block;
+        padding: 0 0 0 135px;
+        margin-top: 13px;
+
+    }
+
+
+    header table tr td + td {
+
+        padding: 0 30px 0 50px;
+
+    }
+
+
+    header tr:first-of-type td:first-of-type{
+      font-size: 18px;
+      color: #ffffff;
+      font-weight: lighter;
+      position: relative;
+      text-decoration: none;
+
+  }
+
+  #todo + td{
+    padding-left: 12px;
+  }
+
+  #todo:before {
+      content: url("icon_to_do.png");
+      width: 25px;
+      position: absolute;
+      left: 100px;
+      margin-top: -3px;  
+
+     
+       
+    }
+
+ tr td p{
+    border-radius: 50%;
+    background-color: rgba(255,255,255,.2);
+    border-style: none;
+    width: 20px;
+    position: relative;
+    text-align: center;
+    float: right;
+    margin-left: 50px;
+  }
+
+
+  #firstcircle{
+    border-radius: 40%;
+    background-color: rgba(255,255,255,.2);
+    border-style: none;
+    width: 25px;
+    color:rgba(255,255,255,0.5);
+
+  }
+
+
+#active {
+
+  background-color: #383f5f;
+  color: #ffffff;
+}
+
+
+#active p{
+
+  background-color: #148fd5;
+  color: #ffffff;
+
+}
+
+
+#completed:before{
+      content: url("icon_check_box.png");
+      width: 25px;
+      position: absolute;
+      left: 100px;
+      margin-top: -3px;  
+    
+      
+    }
+
+
+ header table ~ table td {
+     text-decoration: line-through;
+    }
+
+
+
+
+
+
+
+
+
+
+
+main{
+  padding: 20px 90px 150px 30px;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+
+#menulabel{
+  visibility: hidden;
+}
+
+[type=checkbox]{
+
+  display: none;
+}
+
+
+main ul{
+ 
+}
+
+main ul li{
+  display: inline-block;
+
+}
+main ul h1{
+  padding: 55px 20px 30px 20px;
+  font-size: 21px;
+  font-weight: lighter;
+}
+
+#mainactive{
+ color: #ffffff;
+ background-color: #148fd5;
+ border-radius: 50%;
+ width: 20px;
+ border-style: none;
+ text-align: center;
+ position: relative;
+ top: -2px;
+}
+
+
+
+main div ul li{
+  display: block;
+  padding: 18px 0 18px 0;
+  box-sizing: border-box;
+
+}
+
+main div ul li:first-child{
+  color: #148fd5;
+}
+
+main div ul li:first-child:before{
+    content: url("icon_add.png");
+    width: 25px;
+    position: relative;
+    padding: 0 15px;
+}
+
+main div ul li ~li {
+  border-top: 1px solid #e7e7e7;
+}
+
+.checked{
+  text-decoration: line-through;
+  color: #b3b3b3;
+}
+
+
+main div .unchecked:before{
+    content: url("icon_uncheck_box.png");
+    width: 25px;
+    position: relative;
+    padding: 0 15px;
+  
+}
+
+main div .checked:before{
+    content: url("icon_checked_box.png");
+    width: 25px;
+    position: relative;
+    padding: 0 15px;
+  
+}
+
+main div ul img{
+    position: relative;
+    float: right;
+
+  
+}
+
+main div ul li~li:hover{
+  color: #148fd5;
+}
+
+
+
+
+
+
+
+
+.modal{
+max-width: 100%;
+position:fixed;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+content: "";
+background: rgba(0,0,0, .4);}
+
+.modal form{
+
+position: absolute;
+left: 430px;
+top: 110px;
+width: 500px;
+background-color: #ffffff;
+padding: 35px 30px;
+font-size: 14px;
+}
+
+
+input[type=text],
+input[type=number],
+textarea{
+  padding: 5px;
+  border: 1px solid gray;
+  width: 400px;
+  box-sizing: border-box;
+  font-size: 12px;
+  opacity: 1;
+}
+
+input[type=text], 
+input[type=number]  {
+
+height: 35px;
+
+}
+
+input[type=number] {
+   width: 115px;
+   
+}
+
+.divide{
+ display: inline-block;
+ padding: 0 8px;
+}
+textarea{
+  resize: none;
+  height: 150px;
+}
+
+main tr td:first-of-type{
+  vertical-align: top;
+  padding: 10px 0 10px 0;
+}
+
+main tr td + td{
+  padding: 0 0 25px 20px;
+}
+
+main button{
+  color: #ffffff;
+  background-color: #148fd5;
+  border-style: none;
+  border-radius: 4px;
+  text-align: center;
+  width: 180px;
+  height: 35px;
+  font-size: 14px;
+  margin: 0 10px;
+
+}
+
+#buttons{
+  margin-left: 85px;
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 769px){
+
+#menulabel{
+  visibility: visible;
+}
+
+header{
+  display: none;
+}
+
+input:checked + header{
+  display: block;
+  z-index: 4;
+}
+
+}
